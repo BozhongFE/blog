@@ -38,47 +38,11 @@ $ hexo new "your note name"
 ``` bash
 $ hexo generate
 ```
+此操作是在服务器操作，本地无需提交 `public` 静态文件。
 详情：[Hexo Generate](https://hexo.io/docs/generating.html)
 
 
-### 部署静态文件
+### 发布文章
 
-编译之后会生成 `public` 静态文件目录，之后 `push` 上 `hg` 即可。
-
-## 代码风格
-
-### html
-
-``` html
-<html>
-  <head>
-    <title>Hello World</title>
-  </head>
-  <body>
-    <div>Hello World</div>
-  </body>
-</html>
-```
-
-
-### css
-
-``` css
-html {
-  font-size: 14px;
-}
-.class {
-  color: red;
-}
-```
-
-
-### javascript
-
-``` javascript
-const str = '';
-for (let i = 0; i <= 10; i++) {
-  console.log(i);
-}
-```
+把自己的 `markdown` 文件 `push` 上版本库即可，其他交由服务器去拉取并编译静态文件。
 

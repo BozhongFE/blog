@@ -1,0 +1,8 @@
+{
+  "apps": [{
+    "name": "blog_auto_pull",
+    "script": "auto_pull/pull.js",
+    "cwd": "./",
+    "watch": true
+  }]
+}

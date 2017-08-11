@@ -64,15 +64,15 @@ tags:
   `word-wrap: break-word` 会先尝试将单词挪到下一行，下一行宽度不够才会进行单词内断句。
   `word-break: break-all` 直接进行单词内断句。
 
-  两者都不能搭配 `white-space:pre` `<pre>` 使用。
+  PC端两者都不适合搭配 `white-space:pre` `<pre>` 使用。
 
 * display: block/inline-block/inline
 
   `display: block` 文字溢出不会撑起容器。
-  `display: inline-block` 容器不定宽度，文字溢出会撑起容器，只有 `word-break:break-all` 有效。
-  `display: inline` border会受文字影响，能用于特殊需求。部分浏览器word-wrap/word-break换行无效，如FF、IE。
+  `display: inline-block` 容器不定宽度，文字溢出会撑起容器，只有 `word-break:break-all` 有效， `word-wrap: break-word` 需配合宽度使用。
+  `display: inline` border会受文字影响，能用于特殊需求。部分浏览器word-wrap/word-break换行无效，如FF。
 
 ### 兼容问题
 
 * `word-break:keep-all` 移动端基本不支持。
-* 不同浏览器的属性间搭配会有显示差异
+* 不同浏览器的属性间搭配会有显示差异。

@@ -1,0 +1,269 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>强制换行/强制不换行</title>
+  <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="format-detection" content="telephone=no" />
+  <style>
+    body {
+      background: #f0f0f0;
+      padding: 10px;
+    }
+    .box {
+      width: 640px;
+      margin: 0 auto;
+      font-size: 16px;
+      line-height: 2;
+      padding: 10px 15px;
+      /*border: 1px solid #F37428;*/
+      background: #fff
+    }
+    .box-example {
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hide;
+      margin-bottom: 10px;
+      border: 1px solid #dcdcdc;
+    }
+    .box-example:after {
+      content: '';
+      position: absolute;
+      left: 0；
+      top: 0;
+      width: 40%;
+      height: 100%;
+      background: #262a30;
+    }
+    .box-example__left {
+      display: inline-flex;
+      align-items: center;
+      width: 40%;
+      font-size: 14px;
+    }
+    .box-example__left pre{
+      font-family: inherit;
+      width: 100%;
+      color: #fff;
+      z-index: 10;
+      margin: 0;
+      padding: 10px 15px;
+    }
+    .box-example__right {
+      height: 100%;
+      width: 55%;
+      padding:10px 15px;
+      box-sizing: border-box;
+    }
+    .box-example__right p,
+    .box-example__right pre {
+      font-family: inherit;
+      width: 100%;
+      padding: 10px 15px;
+      border: 1px dashed #dcdcdc;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <p class="box-title">一、强制不换行</p>
+    <div class="box-example">
+      <div class="box-example__left">
+        <pre>p {
+  white-space: nowrap;
+}</pre>
+      </div>
+      <div class="box-example__right">
+        <p style="white-space: nowrap">
+        1. white-space: nowrap  强制在同一行内显示所有文本，直到文本结束或者 br 标签。
+        </p>
+      </div>
+    </div>
+    <div class="box-example">
+      <div class="box-example__left">
+        <pre>p {
+  white-space: pre;
+}</pre>
+      </div>
+      <div class="box-example__right">
+        <p style="white-space: pre">
+    2. white-space: pre  换行和其他空白字符(换行符/空格/制表符/文字转行)都将受到保护,等同 pre 标签。
+        </p>
+      </div>
+    </div>
+    <div class="box-example">
+      <div class="box-example__left">
+        <pre>p {
+  word-break: keep-all;
+}</pre>
+      </div>
+      <div class="box-example__right">
+        <p style="word-break: keep-all">
+    3. word-break: keep-all  不允许CJK（中/日/韩）文本断行，移动端基本不支持。例如这里测试的这一句
+        </p>
+      </div>
+    </div>
+    <p class="box-title">二、强制换行</p>
+    <div class="box-example">
+      <div class="box-example__left">
+        <pre>pre {
+  white-space: pre-wrap;
+}</pre>
+      </div>
+      <div class="box-example__right">
+        <pre style="white-space: pre-wrap">
+    pre 换行：
+    a. 可用 white-space: pre-wrap 但过长的英文/数字会另起一行，特殊情况下会溢出空间，而且不同浏览器对空白换行的处理有差异。
+        </pre>
+      </div>
+    </div>
+    <div class="box-example">
+      <div class="box-example__left">
+        <pre>pre {
+  white-space: pre-line;
+}</pre>
+      </div>
+      <div class="box-example__right">
+        <pre style="white-space: pre-line">
+    b. 也可以用white-space: pre-line，但会合并空格和制表符。
+        </pre>
+      </div>
+    </div>
+    <div class="box-example">
+      <div class="box-example__left">
+        <pre>p {
+  word-wrap: break-word;
+}</pre>
+      </div>
+      <div class="box-example__right">
+        <p style="word-wrap: break-word">
+        英文数字内换行：<br/>
+        word-wrap: break-word 会先尝试将单词挪到下一行，下一行宽度不够才会进行单词内断句，例如：
+        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        </p>
+      </div>
+    </div>
+    <div class="box-example">
+      <div class="box-example__left">
+        <pre>p {
+  word-break: break-all;
+}</pre>
+      </div>
+      <div class="box-example__right">
+        <p style="word-break: break-all">
+        word-break: break-all 直接进行单词内断句，不会将单词挪到下一行。
+        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        </p>
+      </div>
+    </div>
+    <div class="box-example">
+      <div class="box-example__left">
+        <pre>p {
+  white-space: nowrap;
+}</pre>
+      </div>
+      <div class="box-example__right">
+        <p style="white-space: nowrap;">
+        display: block 块级元素文字溢出不会撑起容器。示例默认都是块级
+        </p>
+      </div>
+    </div>
+    <div class="box-example">
+      <div class="box-example__left">
+        <pre>p {
+  width:auto;
+  display: inline-block
+  white-space: nowrap;
+}</pre>
+      </div>
+      <div class="box-example__right">
+        <p style="white-space: nowrap;display: inline-block; width:auto;">display: inline-block 行内块元素若不定宽度，文字溢出会撑起容器。word-break:break-all 有效。word-wrap: break-word 需配合宽度使用(不同浏览器有差异)
+        </p>
+      </div>
+    </div>
+    <div class="box-example">
+      <div class="box-example__left">
+        <pre>p {
+  width:auto;
+  display: inline-block;
+  word-wrap: break-word;
+}</pre>
+      </div>
+      <div class="box-example__right">
+        <p style="display: inline-block; width:auto;word-wrap: break-word">word-break:break-all 有效。word-wrap: break-word 需配合宽度使用
+        ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss (不同浏览器有差异)
+        </p>
+      </div>
+    </div>
+    <div class="box-example">
+      <div class="box-example__left">
+        <pre>p {
+  width:auto;
+  display: inline-block;
+  word-break:break-all;
+}</pre>
+      </div>
+      <div class="box-example__right">
+        <p style="display: inline-block; width:auto;word-break:break-all">
+        word-break:break-all 有效。word-wrap: break-word 需配合宽度使用
+        ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss (不同浏览器有差异)
+        </p>
+      </div>
+    </div>
+    <div class="box-example">
+      <div class="box-example__left">
+        <pre>span {
+  word-break:break-all;
+  border-top:2px dashed #ff8cab
+}</pre>
+      </div>
+      <div class="box-example__right">
+        <span style="word-break:break-all;border-top:2px dashed #ff8cab">
+        display: inline border会受文字影响，能用于特殊需求。
+        </span>
+      </div>
+    </div>
+    <div class="box-example">
+      <div class="box-example__left">
+        <pre>span {
+  word-break:break-all;
+  border-left:2px dashed #ff8cab
+}</pre>
+      </div>
+      <div class="box-example__right">
+        <span style="word-break:break-all;border-left:2px dashed #ff8cab">
+        display: inline border会受文字影响，能用于特殊需求。
+        </span>
+      </div>
+    </div>
+    <div class="box-example">
+      <div class="box-example__left">
+        <pre>span {
+  word-break:break-all;
+  border-bottom:2px dashed #ff8cab
+}</pre>
+      </div>
+      <div class="box-example__right">
+        <span style="word-break:break-all;border-bottom:2px dashed #ff8cab">
+        display: inline border会受文字影响，能用于特殊需求。
+        </span>
+      </div>
+    </div>
+    <div class="box-example">
+      <div class="box-example__left">
+        <pre>span {
+  word-break:break-all;
+  border-right:2px dashed #ff8cab
+}</pre>
+      </div>
+      <div class="box-example__right">
+        <span style="word-break:break-all;border-right:2px dashed #ff8cab">
+        display: inline border会受文字影响，能用于特殊需求。
+        </span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

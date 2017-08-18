@@ -80,7 +80,7 @@ tags:
 
 ### 示例演示
 
-[background](/demo/background.html)
+[background](/demo/css-background.html)
 
 
 ### 关于兼容请看参考文档

@@ -1,0 +1,252 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>background 示例</title>
+  <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="format-detection" content="telephone=no" />
+  <style>
+    body {
+      padding: 20px;
+    }
+    h4{
+      margin-top:30px;
+      background:#ddd;
+      padding:5px;
+    }
+    h4 ~ div{
+      background: #f3f3f3;
+      padding:15px;
+    }
+    h4 ~ div > div{
+      display: inline-block;
+      margin-right: 10px;
+      vertical-align: top;
+    }
+    .currentColor .demo{
+      background-color:currentColor;
+      width: 25%;
+      height: 100px;
+      color:red;
+    }
+    .currentColor .demo:nth-child(2){
+      color:pink;
+    }
+    .currentColor .demo:nth-child(3){
+      color:blue;
+      background-color:#fff;
+      border:2px solid currentColor;
+    }
+    .currentColor a{
+      color:#f3f3f3;
+    }
+    .repeat .demo{
+      background: background:#f00 url(http://image.seedit.com/sys/2017/08/11/f5c105f2a3280d67a7c2dd8adf1cb452691507.jpg.gif) space fixed 0 0/50px 50px 
+      border:2px solid #ddd;
+      width: 40%;
+      height: 100px;
+    }
+    .repeat .demo:nth-child(2){
+      background-size: 45%;
+      background-repeat: round no-repeat;
+    }
+    .attachment .demo{
+      width: 25%;
+      height: 100px;
+      overflow: scroll;
+      border:4px dashed pink;
+    }
+    .attachment .demo:nth-child(1){
+      background: url('http://image.seedit.com/sys/2017/08/11/f5c105f2a3280d67a7c2dd8adf1cb452691507.jpg') no-repeat  scroll left top;
+    }
+    .attachment .demo:nth-child(2){
+      background:url('http://image.seedit.com/sys/2017/08/11/f5c105f2a3280d67a7c2dd8adf1cb452691507.jpg') center center no-repeat fixed / 50% 50% ;
+    }
+    .attachment .demo:nth-child(3){
+      background: url('http://image.seedit.com/sys/2017/08/11/f5c105f2a3280d67a7c2dd8adf1cb452691507.jpg') no-repeat local left top;
+    }
+    .attachment .text {
+      height: 700px;
+    }
+    .origin .demo,.clip .demo{
+      width: 20%;
+      height: 100px;
+      border:3px dashed rgba(0,0,0,0.5);
+      padding:8px;
+      background: url('http://image.seedit.com/sys/2017/08/11/f5c105f2a3280d67a7c2dd8adf1cb452691507.jpg') no-repeat 0 0;
+      background-origin: border-box;
+    }
+    .origin .demo:nth-child(1){
+      background-origin: border-box;
+    }
+    .origin .demo:nth-child(2){
+      background-origin: padding-box;
+    }
+    .origin .demo:nth-child(3){
+      background-origin: content-box;
+    }
+    .clip .demo:nth-child(1){
+      background-clip: border-box;
+    }
+    .clip .demo:nth-child(2){
+      background-clip: padding-box;
+    }
+    .clip .demo:nth-child(3){
+      background-clip: content-box;
+    }
+    .clip .demo:nth-child(4){
+      width: 82%;
+      margin-top:10px;
+      background-origin: border-box;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 40px;
+    }
+    .gradient .demo{
+      width: 100px;
+      height: 100px;
+    }
+    .gradient .demo:nth-child(1){
+      background-image:-webkit-linear-gradient(to top left, orange, green); 
+      background-image:linear-gradient(to top left,orange,green);
+    }
+    .gradient .demo:nth-child(2){
+      background-image: radial-gradient(#ace, #f96, #1E90FF);
+      background-image: -webkit-radial-gradient(#ace, #f96, #1E90FF);
+    }
+    .gradient .demo:nth-child(3) {
+      background: repeating-linear-gradient(#ace, pink 10%, #fff 15%);
+    }
+    .gradient .demo:nth-child(4) {
+      background-image: repeating-radial-gradient(#ace, #ace 5px, #f96 5px, #f96 10px);
+      background-image: -webkit-repeating-radial-gradient(#ace, #ace 5px, #f96 5px, #f96 10px);
+    }
+    .mode{
+      position: relative;
+      display:fixed;
+      flex-flow:row wrap;
+    }
+    .mode .demo{;
+      width: 80px;
+      height: 60px;
+      flex: 1;
+      box-sizing: border-box;
+      border:2px solid #fff;
+      background-image: url('https://uc.bozhong.com/data/avatar/034/19/41/28_avatar_middle.jpg'),url('http://image.seedit.com/sys/2017/08/11/f5c105f2a3280d67a7c2dd8adf1cb452691507.jpg');
+      background-repeat:  no-repeat;
+      background-position: 0;
+      background-size: cover;
+    }
+    .mode .demo:nth-child(1){
+      background-blend-mode: multiply;
+    }
+    .mode .demo:nth-child(2){
+      background-blend-mode: screen;
+    }
+    .mode .demo:nth-child(3){
+      background-blend-mode: overlay;
+    }
+    .mode .demo:nth-child(4){
+      background-blend-mode: darken;
+    }
+    .mode .demo:nth-child(5){
+      background-blend-mode: lighten;
+    }
+    .mode .demo:nth-child(6){
+      background-blend-mode: color-dodge;
+    }
+    .mode .demo:nth-child(7){
+      background-blend-mode: color-burn;
+    }
+    .mode .demo:nth-child(8){
+      background-blend-mode:hard-light;
+    }
+    .mode .demo:nth-child(9){
+      background-blend-mode:soft-light;
+    }
+    .mode .demo:nth-child(10){
+      background-blend-mode:difference;
+    }
+    .mode .demo:nth-child(11){
+      background-blend-mode:exclusion;
+    }
+    .mode .demo:nth-child(12){
+      background-blend-mode:hue;
+    }
+    .mode .demo:nth-child(13){
+      background-blend-mode:saturation;
+    }
+    .mode .demo:nth-child(14){
+      background-blend-mode:color;
+    }
+    .mode .demo:nth-child(15){
+      background-blend-mode:luminosity;
+    }
+  </style>
+</head>
+<body>
+  <h4>★ currentColor 演示</h4>
+  <div class="currentColor">
+    <div class="demo">red</div>
+    <div class="demo">pink</div>
+    <div class="demo">blue</div>
+    <a href="http://www.zhangxinxu.com/study/201410/background-hollow-currentcolor.html" target="_blank">Try me!</a>
+  </div>
+
+  <h4>★ repeat 演示</h4>
+  <div class="repeat">
+    <div class="demo">space no-repeat</div>
+    <div class="demo">round no-repeat</div>
+  </div>
+
+  <h4>★ attachment 演示</h4>
+  <div class="attachment">
+    <div class="demo"><div class="text">scroll</div></div>
+    <div class="demo"><div class="text">fixed</div></div>
+    <div class="demo"><div class="text">local</div></div>
+  </div>
+
+  <h4>★ origin 演示</h4>
+  <div class="origin">
+    <div class="demo">border-box</div>
+    <div class="demo">padding-box</div>
+    <div class="demo">content-box</div>
+  </div>
+
+  <h4>★ clip 演示</h4>
+  <div class="clip">
+    <div class="demo">border-box</div>
+    <div class="demo">padding-box</div>
+    <div class="demo">content-box</div>
+    <div class="demo">☎✈▓★ 哈哈哈哈哈哈</div>
+  </div>
+
+  <h4>★ gradient 演示</h4>
+  <div class="gradient">
+    <div class="demo">linear-gradient</div>
+    <div class="demo">radial-gradient</div>
+    <div class="demo">repeating-linear-gradient</div>
+    <div class="demo">repeating-radial-gradient</div>
+  </div>
+
+  <h4>★ background-blend-mode 演示</h4>
+  <div class="mode">
+    <div class="demo">正片叠底</div>
+    <div class="demo">滤色</div>
+    <div class="demo">叠加</div>
+    <div class="demo">变暗</div>
+    <div class="demo">变亮</div>
+    <div class="demo">颜色减淡</div>
+    <div class="demo">颜色加深</div>
+    <div class="demo">强光</div>
+    <div class="demo">柔光</div>
+    <div class="demo">差值</div>
+    <div class="demo">排除</div>
+    <div class="demo">色相</div>
+    <div class="demo">饱和度</div>
+    <div class="demo">颜色</div>
+    <div class="demo">亮度</div>
+  </div>
+</body>
+</html>

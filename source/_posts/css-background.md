@@ -7,7 +7,7 @@ tags:
 
 ### background 全家桶简写形式
  `background: [background-color] [background-image] [background-attachment] [background-repeat]  [background-position] /[ background-size] [background-origin] [background-clip]`
-
+<!--more-->
 ### CSS1常见属性
 
 * background-color 定义背景颜色

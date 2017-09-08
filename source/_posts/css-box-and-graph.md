@@ -8,7 +8,7 @@ tags:
 ## 盒子模型
 
 ![css-box](/img/css-box/index.png)
-
+<!--more-->
 盒子模型是由4个盒子组成，分别为
 `margin` => `margin-box`
 `border` => `border-box`

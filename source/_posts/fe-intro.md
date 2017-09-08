@@ -5,6 +5,7 @@ tags:
  - tutotial
 ---
 本站基于Hexo，写文章前需要先安装Hexo。（文档格式是Markdown）
+<!--more-->
 
 ## Hexo使用
 

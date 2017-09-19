@@ -2,7 +2,7 @@
 title: 模块 与 requirejs
 date: 2017-09-14 17:43:17
 tags:
-  Javascript相关
+ - javascript
 ---
 
 ### 模块

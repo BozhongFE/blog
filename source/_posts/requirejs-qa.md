@@ -5,8 +5,6 @@ tags:
  - javascript
 ---
 
-# require.js 的一些常见问题
-
 这篇文章，主要是写 `require.js` 在使用过程中的一些常见的问题。  
 部分问题会结合源代码进行分析说明。
 

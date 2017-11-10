@@ -25,7 +25,7 @@ req = requirejs = function (deps, callback, errback, optional) {
 
 // line 1821 - 1823
 if (!require) {
-    require = req;
+  require = req;
 }
 ```
 
@@ -79,6 +79,7 @@ require(['mod/main.js', 'http://example.com/test', 'mod/main?a=1', '/mod/main'])
 ```
 
 上面四种模块名，会忽略配置。具体可以看下源代码：
+
 ```javascript
 // line 1644 - 1649
 if (req.jsExtRegExp.test(moduleName)) {
@@ -91,6 +92,7 @@ if (req.jsExtRegExp.test(moduleName)) {
 // line 1828
 req.jsExtRegExp = /^\/|:|\?|\.js$/;
 ```
+
 上面正则匹配的是，以 `/` 开头，或中间有 `:` 或 `?`，或以 `.js` 结尾的字符串。  
 匹配成功的话，则直接 url 等于你传入的模块名，如果没有后缀再加一个后缀。  
 不会去处理其他设置（baseUrl 和 paths）的规则。

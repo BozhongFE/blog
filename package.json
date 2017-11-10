@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "hexo": {
-    "version": "3.3.8"
+    "version": "3.3.9"
   },
   "scripts": {
-    "autopull": "node auto_pull/pull.js"
+    "autopull": "node auto_pull/pull.js",
+    "hexo": "hexo server"
   },
   "dependencies": {
     "hexo": "^3.2.0",

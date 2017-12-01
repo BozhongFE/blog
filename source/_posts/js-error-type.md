@@ -49,7 +49,7 @@ Unexpected token;
 意外符号
 
 Unexpected end of input
-意外的终止输入, 解板代码时，碰到不可预知的错误
+意外的终止输入, 解析代码时，碰到不可预知的错误
 
 Uncaught SyntaxError: Invalid or unexpected token
 无效的意外符号
@@ -84,7 +84,7 @@ a 未定义
 ```js
   var foo = undefined;
   foo();  //Uncaught TypeError: foo is not a function
-  var x = document.getElementByID('foo'); //Uncaught TypeError: foo is not a function
+  var x = document.getElementByID('foo'); //Uncaught TypeError: document.getElementByID is not a function
 
   var a = { };
   var b = { a: a };

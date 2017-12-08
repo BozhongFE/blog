@@ -119,19 +119,15 @@ ctx.fillRect(150, 75, 100, 100); // 此时绘制的矩形将会是默认的黑�
 function imageToBase64(url, callback) {
   var tempImage = new Image();
   tempImage.crossOrigin = 'anonymous';
-  document.body.appendChild(tempImage);
   
   tempImage.onload = function () {
-    var computedStyle = window.getComputedStyle(tempImage, null);
     var canvas = document.createElement('canvas');
-    
-    canvas.width = computedStyle.getPropertyValue('width').split('px')[0];
-    canvas.height = computedStyle.getPropertyValue('height').split('px')[0];
-    
     var context = canvas.getContext('2d');
+    
+    canvas.width = this.width;
+    canvas.height = this.height;
     context.drawImage(tempImage, 0, 0);
     var imageDataUrl = canvas.toDataURL('image/png', 1.0);
-    document.body.removeChild(tempImage);
     callback(imageDataUrl);
   };
 

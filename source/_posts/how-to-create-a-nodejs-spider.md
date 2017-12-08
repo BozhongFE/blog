@@ -154,6 +154,7 @@ request.get(dataUrl, (err, rep, body) => {
 ### 5. 抓取多个页面
 
 这里需要修改 `getData` 函数部分的代码，并新增一些代码。
+
 ```javascript
 // homeUrl 后面加上这些
 const pageSize = 25; // 每 25 部电影一页

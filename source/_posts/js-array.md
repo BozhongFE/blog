@@ -5,7 +5,7 @@ tags:
 - javascript
 ---
 ## 数组元素的添加
-### push( )和unshift()
+### push()和unshift()
 ```
 1. push() //在数组的最末尾添加元素;
 2. unshift() //在数组的最前面添加一个元素;
@@ -24,7 +24,7 @@ console.log(arr);//元素被修改了
 console.log(_aaa);//返回值是数组的长度;
 ```
 ## 数组元素的删除
-### pop( )和shift( )
+### pop()和shift()
 ```
 1. pop()  //不需要参数;在数组的最末尾删除一项;
 1. shift() //不需要参数;在数组的最前面删除一项;
@@ -56,7 +56,6 @@ console.log(aaa === arr);// true 原数组被排序了(冒泡排序)
 sort(),数值大小排序方法,需要借助回调函数;
 例：
 
-
 ```javascript
 var arr = [4,5,1,13,2,7,6];//回调函数里面返回值如果是：参数1-参数2;升幂；参数2-参数1;降幂；
 arr.sort(function (a,b) {
@@ -67,7 +66,7 @@ arr.sort(function (a,b) {
 console.log(arr); // [1, 2, 4, 5, 6, 7, 13]
 ```
 ## 数组的翻转
-### reverse( )
+### reverse()
 例:
 ```javascript
 var arr1 = [1,2,3,4,5];
@@ -75,7 +74,7 @@ var aaa = arr1.reverse(); // [5,4,3,2,1]
 ```
 
 ## 数组元素的连接 
-### concat( )
+### concat()
 数组1.concat(数组2); // 链接两个数组;
 例 ：
 
@@ -83,11 +82,11 @@ var aaa = arr1.reverse(); // [5,4,3,2,1]
 var arr1 = [1,2,3];
 var arr2 = ["a","b","c"];
 var arr3 = arr1.concat(arr2);
-console.log(arr3)   //    [1, 2, 3, "a", "b", "c"]
+console.log(arr3)//[1, 2, 3, "a", "b", "c"]
 ```
 
 ## 数组元素的截取 
-### slice( )
+### slice()
 数组.slice(开始索引值，结束索引值);     //数组截取;
 例 ：
 
@@ -139,29 +138,32 @@ console.log(arr.indexOf("xxx"));    // -1;  查不到就返回-1；
 ```javascript
 var arr = [100,222,333,444,555];
 var newArr = arr.filter(function (element, index, array) {
-    //只要是偶数，就组成数组;(数组中辨别元素)
-    if(element%2 === 0){
-        return true;
-    }else{
-        return false;
-    }
+  //只要是偶数，就组成数组;(数组中辨别元素)
+  if(element%2 === 0){
+      return true;
+  }else{
+      return false;
+  }
 })
 console.log(newArr); // [100，222, 444]
 ```
    
 ### every()
-
- every返回一个bool值，全部是true才是true；有一个是false，结果就是false
+every() 方法用于检测数组所有元素是否都符合指定条件（通过函数提供）。
+every() 方法使用指定函数检测数组中的所有元素：
+如果数组中检测到有一个元素不满足，则整个表达式返回 false ，且剩余的元素不会再进行检测。
+如果所有元素都满足条件，则返回 true。
  例：
 ```javascript
+var arr = [120, 220, 320, 420, 520]
 var bool = arr.every(function (element, index, array) {
-    //判断：我们定义所有元素都大于200;
-    //if(element > 100){
-    if(element > 200){
-        return true;
-    }else{
-        return false;
-    }
+  //判断：我们定义所有元素都大于200;
+  //if(element > 100){
+  if(element > 200){
+      return true;
+  }else{
+      return false;
+  }
 })
 alert(bool); //false
 ```
@@ -174,10 +176,10 @@ alert(bool); //false
 var arr = [111,222,333,444,555];
 var sum = 0;
 var aaa = arr.forEach(function (element,index,array) {
-    console.log(element); // 输出数组中的每一个元素
-    console.log(index); // 数组元素对应的索引值
-    console.log(array); // 数组本身 [111, 222, 333, 444, 555]
-    sum += element; //数组中元素求和;
+  console.log(element); // 输出数组中的每一个元素
+  console.log(index); // 数组元素对应的索引值
+  console.log(array); // 数组本身 [111, 222, 333, 444, 555]
+  sum += element; //数组中元素求和;
 });
 console.log(sum); // 数组元素加起来的和
 console.log(aaa);//undefined；没有返回值 所以返回undefined
@@ -190,7 +192,7 @@ console.log(aaa);//undefined；没有返回值 所以返回undefined
 var arr = [111,222,333,444,555];
 var newArr = arr.map(function (element, index, array) {
     if(index == 3){
-        return element; // 这里return了 所以下面返回的值是333
+        return element; // 这里return了 所以下面返回的值是444
     }
     return element*100; // 返回的元素值都乘上100后的值
 })

@@ -154,10 +154,7 @@ app.get('/seterror', function(req, res, next) {
 
   const content = body;
 
-  if (!content) return res.json({
-    error_code: 1001,
-    error_message: '错误数据不能为空',
-  });
+  if (JSON.stringify(content) === '{}') return false;
 
   co(function *() {
     const json = {

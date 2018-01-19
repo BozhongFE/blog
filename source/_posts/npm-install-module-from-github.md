@@ -1,6 +1,6 @@
 ---
 title: 如何把你 Github 上的模块改为可用 npm 安装
-date: 2017-01-18
+date: 2018-01-19
 tag: 
 - npm
 - javascript

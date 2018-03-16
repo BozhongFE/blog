@@ -34,7 +34,7 @@ npm i --save puppeteer
 # or "yarn add puppeteer"
 ```
 
-需要注意的是，在安装 puppeteer 的时候，会下载一个最新版本的 Chromeium 以保证 API 的正常使用。最新的 Windows 版本大小在 120Mb 左右。  
+需要注意的是，在安装 puppeteer 的时候，会下载一个最新版本的 Chromium 以保证 API 的正常使用。最新的 Windows 版本大小在 120Mb 左右。  
 不过也可以通过配置跳过 Chromium 下载这一步。具体看 [Environment variables](https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#environment-variables)
 
 ### 使用

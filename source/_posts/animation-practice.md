@@ -213,13 +213,13 @@ tags:
 
       ```bash
       // webpack
-      // lottie_light.js 不含canvas，只能使用svg
+      // lottie_light 不含canvas，只能使用svg
 
       resolve: {
         alias: {
           lottie: process.env.NODE_ENV === 'production'
             ? 'lottie-web/build/player/lottie_light.min.js'
-            : 'lottie-web/build/player/lottie_light.js',
+            : 'lottie-web/build/player/lottie.js',
         },
       },
       ```

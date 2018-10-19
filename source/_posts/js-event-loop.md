@@ -18,7 +18,7 @@ tags:
   为了利用多核CPU的计算能力，HTML5提出Web Worker标准，允许JavaScript在主线程上创建worker线程，但是子线程完全受主线程控制，且不得操作DOM。所以，这个新标准并没有改变JavaScript单线程的本质。
 
 
-### 小测试
+### 小测试（一）
 
   思考下边的代码运行顺序：
   
@@ -44,7 +44,7 @@ tags:
   * Promise多级then是否会被插入setTimeout
   
 
-  结果: <span style="padding: 10px; color:#fff">1 5 3 4 2</span>
+  结果: 1 5 3 4 2
 
 ### 事件循环(Event Loop)
 
@@ -60,13 +60,13 @@ tags:
 
   **基础概念**：
 
-  * 事件队列(queue)
-
-    > 存储着待执行任务的队列，其中的任务严格按照时间先后顺序执行，排在队头的任务将会率先执行，而排在队尾的任务会最后执行。
-
   * 执行栈(stack)
 
     > 执行栈则是一个类似于函数调用栈的运行容器，当执行栈为空时，Javascript引擎便检查事件队列，如果不为空的话，事件队列便将第一个任务压入执行栈中运行。
+
+  * 事件队列(queue)
+
+    > 存储着待执行任务的队列，其中的任务严格按照时间先后顺序执行，排在队头的任务将会率先执行，而排在队尾的任务会最后执行。
 
   * 异步任务
   
@@ -97,7 +97,7 @@ tags:
 
 
   **最基本的Event Loop流程：**
-  
+
   * 开始 event-loop
   * 微任务(microtask) 队列开始清空，执行
   * 检查 宏任务(task) 是否清空，有则跳到下一步，无则跳到最后一步
@@ -105,8 +105,45 @@ tags:
   * 检查 微任务(microtask) 是否清空，若有则跳到第三步，无则跳到第四步
   * 结束 event-loop
 
-  ![流程](https://user-gold-cdn.xitu.io/2017/11/21/15fdcea13361a1ec?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+  ![流程](/img/js-event-loop/2.png)
 
+### 小测试（二）
+
+  ```js
+  // 添加三个 Task
+  // Task 1
+  setTimeout(function() {
+    console.log(4);
+  }, 0);
+
+  // Task 2
+  setTimeout(function() {
+    console.log(6);
+    // 添加 microTask
+    promise.then(function() {
+      console.log(8);
+    });
+  }, 0);
+
+  // Task 3
+  setTimeout(function() {
+    console.log(7);
+  }, 0);
+
+  var promise = new Promise(function executor(resolve) {
+    console.log(1);
+    for (var i = 0; i < 10000; i++) {
+      i == 9999 && resolve();
+    }
+    console.log(2);
+  }).then(function() {
+    console.log(5);
+  });
+
+  console.log(3);
+  ```
+
+  答案: 1 2 3 5 4 6 8 7
 
 ### 待续...
 

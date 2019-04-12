@@ -26,7 +26,7 @@ tags:
 扫码看demo
 
 <img src="https://image.office.bzdev.net/sys/2019/04/12/b7257a0cf34ee93cb7a913d96d9a2064658695.jpg">
-```
+
 ```html
 <html>
   <body>

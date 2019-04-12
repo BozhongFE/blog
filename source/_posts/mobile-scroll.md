@@ -97,7 +97,7 @@ tags:
         padding: 8px;
     }
 ```
-```javascript
+```js
 
  // 仅是用于触发弹框显示及隐藏
 
@@ -187,7 +187,7 @@ body {
 }
 ```
 
-```javascrtip
+```js
   var scrollTop = 0;  // 记录滚动条位置，等弹框隐藏时还原
   var html = document.getElementsByTagName('html')[0];
   var body = document.getElementsByTagName('body')[0];

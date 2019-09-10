@@ -1,6 +1,16 @@
+---
+title: line-height
+date: 2019-09-06
+tags:
+ - css
+ - javascript
+---
+
 # 移动端line-height设置与height一致垂直不居中问题
 
 在PC端各个浏览器都是好的，但在Android和IOS的微信中文字会向上偏移（明显看出上面留白少，下面留白多）。
+
+<!-- more -->
 
 line-height = height，文本并不是真的居中，而是看着居中。当元素高度和font-size差距较大的时候，这种不是真正的居中就越发的明显。
 

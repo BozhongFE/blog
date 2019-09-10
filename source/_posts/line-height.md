@@ -2,11 +2,11 @@
 title: line-height
 date: 2019-09-06
 tags:
- - css
- - javascript
+- css
+- javascript
 ---
 
-# 移动端line-height设置与height一致垂直不居中问题
+# 移动端line-height设置与height一致垂直不居中
 
 在PC端各个浏览器都是好的，但在Android和IOS的微信中文字会向上偏移（明显看出上面留白少，下面留白多）。
 
@@ -82,8 +82,6 @@ div {
     border: 1px solid transparent;
 }
 ```
-
-
 
 ## 找原因
 

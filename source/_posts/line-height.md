@@ -3,7 +3,6 @@ title: line-height
 date: 2019-09-06
 tags:
 - css
-- javascript
 ---
 
 # 移动端line-height设置与height一致垂直不居中

@@ -11,7 +11,7 @@ tags:
 
 #### 1. 进入小程序后发生了什么
 
-![applet-1](img\applet-performance\applet-1.webp)
+![applet-1](\img\applet-performance\applet-1.webp)
 
 <!--more-->
 
@@ -23,7 +23,7 @@ tags:
 
   - 下载代码包启动小程序
 
-    ![applet-2](img\applet-performance\applet-2.webp)
+    ![applet-2](\img\applet-performance\applet-2.webp)
 
 #### 2. 控制包的大小
 
@@ -45,7 +45,7 @@ tags:
 
 #### 1. 了解setData
 
-![applet-3](img\applet-performance\applet-3.webp)
+![applet-3](\img\applet-performance\applet-3.webp)
 
 每次调用一次setData，都是逻辑层向渲染层的一次通讯，这个通讯不是直接传给webView，而是通过走native层。
 

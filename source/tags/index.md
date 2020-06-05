@@ -10,3 +10,5 @@ date: 2017-07-25 15:58:31
 + [review相关](/tags/review)
 + [工具相关](/tags/tool)
 + [Canvas相关](/tags/canvas)
++ [小程序相关](/tags/applet)
+
